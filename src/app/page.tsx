@@ -1,4 +1,4 @@
-import { AddTodo, Todo, TodoList } from '@/components';
+import { AddTodo, TodoList } from '@/components';
 import { prisma } from '@/utils';
 
 async function getData() {
@@ -24,7 +24,13 @@ const Home = async () => {
 
       <section className="flex flex-col items-center justify-center w-full max-w-[1000px] mt-5">
         <AddTodo />
-        <TodoList todos={data} />
+        {data.length === 0 ? (
+          <h3 className="text-xl font-extrabold uppercase text-black mt-10">
+            Задачи отсутствуют...
+          </h3>
+        ) : (
+          <TodoList todos={data} />
+        )}
       </section>
     </section>
   );
