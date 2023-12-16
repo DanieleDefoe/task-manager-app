@@ -1,7 +1,11 @@
+//@ts-nocheck
+
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import { prisma } from '@/utils/prisma';
+import { prisma } from '@/utils';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '../api/auth/[...nextauth]/route';
 
 export async function create(formData: FormData) {
   try {
@@ -11,9 +15,14 @@ export async function create(formData: FormData) {
       return;
     }
 
+    const auth = await getServerSession(authOptions);
+
+    if (!auth) return;
+
     await prisma.todo.create({
       data: {
         title: input,
+        authorEmail: auth?.user?.email,
       },
     });
 
@@ -26,7 +35,13 @@ export async function create(formData: FormData) {
 export async function changeStatus(formData: FormData) {
   try {
     const inputId = formData.get('inputId') as string;
-    const todo = await prisma.todo.findUnique({ where: { id: inputId } });
+    const auth = await getServerSession(authOptions);
+
+    if (!auth) return;
+
+    const todo = await prisma.todo.findUnique({
+      where: { id: inputId, authorEmail: auth.user?.email },
+    });
 
     if (!todo || !inputId) {
       return;
@@ -56,8 +71,12 @@ export async function edit(formData: FormData) {
       return;
     }
 
+    const auth = await getServerSession(authOptions);
+
+    if (!auth) return;
+
     await prisma.todo.update({
-      where: { id: inputId },
+      where: { id: inputId, authorEmail: auth.user?.email },
       data: { title: input },
     });
 
@@ -75,7 +94,13 @@ export async function deleteTodo(formData: FormData) {
       return;
     }
 
-    await prisma.todo.delete({ where: { id: inputId } });
+    const auth = await getServerSession(authOptions);
+
+    if (!auth) return;
+
+    await prisma.todo.delete({
+      where: { id: inputId, authorEmail: auth.user?.email },
+    });
 
     revalidatePath('/');
   } catch (error) {

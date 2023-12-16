@@ -5,7 +5,7 @@ import { useRef, type ReactNode, type FC } from 'react';
 interface Props {
   children: ReactNode;
   className?: string;
-  action(formData: FormData): Promise<void | boolean>;
+  action(formData: FormData): Promise<any>;
   onSubmit?: () => void;
 }
 

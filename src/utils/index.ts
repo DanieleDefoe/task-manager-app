@@ -1,1 +1,3 @@
-export * from './prisma';
+import prisma from './prisma';
+
+export { prisma };
