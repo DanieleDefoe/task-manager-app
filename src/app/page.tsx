@@ -1,5 +1,7 @@
 import { AddTodo, TodoList } from '@/components';
 import { prisma } from '@/utils';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from './api/auth/[...nextauth]/route';
 
 async function getData() {
   const data = await prisma.todo.findMany({
@@ -13,6 +15,7 @@ async function getData() {
 }
 
 const Home = async () => {
+  const auth = await getServerSession(authOptions);
   const data = await getData();
 
   return (
