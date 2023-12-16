@@ -27,19 +27,19 @@ const EditTodo: FC<Props> = ({ todo }) => {
   };
 
   return (
-    <div className="flex gap-5 items-center">
+    <section className="flex gap-5 items-center">
       <Button onClick={handleEdit} text={<BiEdit />} actionButton />
 
       {editTodo && (
         <Form action={edit} onSubmit={handleSubmit}>
           <Input name="inputId" value={todo.id} type="hidden" />
-          <div className="flex justify-center">
+          <section className="flex justify-center">
             <Input type="text" name="newTitle" placeholder="Edit Todo..." />
             <Button type="submit" text="Save" />
-          </div>
+          </section>
         </Form>
       )}
-    </div>
+    </section>
   );
 };
 

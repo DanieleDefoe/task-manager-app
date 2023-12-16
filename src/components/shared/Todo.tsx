@@ -13,17 +13,17 @@ const Todo: FC<Props> = ({ todo }: Props) => {
   };
 
   return (
-    <div
+    <section
       className="w-full flex items-center justify-between bg-white py-3 px-20 rounded-2xl"
       style={todoStyle}
     >
       <ChangeTodo todo={todo} />
       <span className="text-center font-bold uppercase">{todo.title}</span>
-      <div className="flex gap-5 items-center">
+      <section className="flex gap-5 items-center">
         <EditTodo todo={todo} />
         <DeleteTodo todo={todo} />
-      </div>
-    </div>
+      </section>
+    </section>
   );
 };
 

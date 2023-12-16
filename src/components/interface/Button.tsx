@@ -11,18 +11,16 @@ interface buttonProps {
 
 const Button = ({ type, text, onClick, actionButton }: buttonProps) => {
   return (
-    <>
-      <button
-        type={type}
-        onClick={onClick}
-        className={clsx(
-          actionButton && 'bg-orange-700 rounded-full p-2 text-white',
-          'bg-orange-700 px-2 text-white'
-        )}
-      >
-        {text}
-      </button>
-    </>
+    <button
+      type={type}
+      onClick={onClick}
+      className={clsx(
+        actionButton && 'bg-orange-700 rounded-full p-2 text-white',
+        'bg-orange-700 px-2 text-white'
+      )}
+    >
+      {text}
+    </button>
   );
 };
 
