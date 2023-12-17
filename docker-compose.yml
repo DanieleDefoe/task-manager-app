@@ -1,7 +1,7 @@
 version: '3.5'
 
 services:
-  app:
+  src:
     build:
       context: .
       dockerfile: Dockerfile
@@ -9,5 +9,5 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .:/src
+      - /src/node_modules

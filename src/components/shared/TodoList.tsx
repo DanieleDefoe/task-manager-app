@@ -1,5 +1,4 @@
 import { type FC } from 'react';
-import { type Todo as TodoModel } from '@prisma/client';
 import { Todo } from '.';
 
 interface Props {

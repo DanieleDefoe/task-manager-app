@@ -1,6 +1,5 @@
 'use client';
 
-import type { Todo } from '@prisma/client';
 import { type FC, useState } from 'react';
 import { BiEdit } from 'react-icons/bi';
 
@@ -9,7 +8,7 @@ import { Form, Input, Button } from '..';
 import { edit } from '@/app/actions';
 
 interface Props {
-  todo: Partial<Todo>;
+  todo: Partial<TodoModel>;
 }
 
 const EditTodo: FC<Props> = ({ todo }) => {

@@ -1,6 +1,4 @@
 'use client';
-
-import type { Todo } from '@prisma/client';
 import { type FC } from 'react';
 import { BsFillTrashFill } from 'react-icons/bs';
 
@@ -8,7 +6,7 @@ import { Button, Form, Input } from '..';
 import { deleteTodo } from '@/app/actions';
 
 interface Props {
-  todo: Partial<Todo>;
+  todo: Partial<TodoModel>;
 }
 
 const DeleteTodo: FC<Props> = ({ todo }) => {

@@ -1,4 +1,3 @@
-import { type Todo } from '@prisma/client';
 import type { FC } from 'react';
 
 import { Form, Button, Input } from '..';
@@ -6,7 +5,7 @@ import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { changeStatus } from '@/app/actions';
 
 interface Props {
-  todo: Partial<Todo>;
+  todo: Partial<TodoModel>;
 }
 
 const ChangeTodo: FC<Props> = ({ todo }: Props) => {

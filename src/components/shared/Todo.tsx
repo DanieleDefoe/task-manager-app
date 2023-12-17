@@ -1,4 +1,3 @@
-import type { Todo as TodoModel } from '@prisma/client';
 import { type CSSProperties, type FC } from 'react';
 import { ChangeTodo, DeleteTodo, EditTodo } from '.';
 
