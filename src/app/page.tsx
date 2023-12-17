@@ -2,7 +2,7 @@
 import { AddTodo, Button, TodoList } from '@/components';
 import { prisma } from '@/utils';
 import { getServerSession } from 'next-auth/next';
-import { authOptions } from './api/auth/[...nextauth]/route';
+import { authOptions } from './api/auth/[...nextauth]/options';
 import { redirect } from 'next/navigation';
 
 async function getData(email: string) {

@@ -5,7 +5,7 @@
 import { revalidatePath } from 'next/cache';
 import { prisma } from '@/utils';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]/route';
+import { authOptions } from '../api/auth/[...nextauth]/options';
 
 export async function create(formData: FormData) {
   try {

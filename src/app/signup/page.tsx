@@ -2,7 +2,7 @@ import { Button, Form, Input } from '@/components';
 import { createUser } from '../actions';
 import Link from 'next/link';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '../api/auth/[...nextauth]/route';
+import { authOptions } from '../api/auth/[...nextauth]/options';
 import { redirect } from 'next/navigation';
 import { type Metadata } from 'next';
 
